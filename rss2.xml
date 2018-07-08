@@ -8,7 +8,7 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录生活 分享知识</description>
-    <pubDate>Sun, 08 Jul 2018 08:11:25 GMT</pubDate>
+    <pubDate>Sun, 08 Jul 2018 16:18:59 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -20,13 +20,13 @@
       
         
         
-          &lt;p&gt;This is my first blog.Thanks for reading dfgd&lt;/p&gt;
+          &lt;p&gt;This is my first blog.Thanks for reading dfgd gdgs&lt;/p&gt;
 
         
       
       </description>
       
-      <content:encoded><![CDATA[<p>This is my first blog.Thanks for reading dfgd</p>]]></content:encoded>
+      <content:encoded><![CDATA[<p>This is my first blog.Thanks for reading dfgd gdgs</p>]]></content:encoded>
       
       <comments>http://yoursite.com/2018/07/07/My-first-blog/#disqus_thread</comments>
     </item>
