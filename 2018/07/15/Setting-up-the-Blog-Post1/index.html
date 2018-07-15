@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/website_icon2.png?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="BigJun's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="前言 Github Pages是面向用户、组织和项目开放的公共静态页面搭建托管服务，站点可以被免费托管在Github 上，你可以选择使用Github Pages默认提供的域名github.io或者自定义域名来发布站点； Hexo是一个快速、简洁且高效的博客框架。Hexo 使用Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页； 入门级文章，所有操作基于Window">
+<meta name="keywords" content="记录 分享">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的博客不是梦——Github Pages+Hexo搭建个人博客">
+<meta property="og:url" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/index.html">
+<meta property="og:site_name" content="BigJun&#39;s Blog">
+<meta property="og:description" content="前言 Github Pages是面向用户、组织和项目开放的公共静态页面搭建托管服务，站点可以被免费托管在Github 上，你可以选择使用Github Pages默认提供的域名github.io或者自定义域名来发布站点； Hexo是一个快速、简洁且高效的博客框架。Hexo 使用Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页； 入门级文章，所有操作基于Window">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/2.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/3.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/4.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/5.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/6.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/7.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/8.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/9.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/10.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/11.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/12.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/13.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/14.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/15.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/16.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/17.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/18.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/19.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/20.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/21.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/22.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/23.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/24.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/25.png">
+<meta property="og:updated_time" content="2018-07-15T15:51:01.039Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我的博客不是梦——Github Pages+Hexo搭建个人博客">
+<meta name="twitter:description" content="前言 Github Pages是面向用户、组织和项目开放的公共静态页面搭建托管服务，站点可以被免费托管在Github 上，你可以选择使用Github Pages默认提供的域名github.io或者自定义域名来发布站点； Hexo是一个快速、简洁且高效的博客框架。Hexo 使用Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页； 入门级文章，所有操作基于Window">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/"/>
+
+
+
+
+
+  <title>我的博客不是梦——Github Pages+Hexo搭建个人博客 | BigJun's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BigJun's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay hungry,stay foolish</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/15/Setting-up-the-Blog-Post1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BIGJUN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/bigjun.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BigJun's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">我的博客不是梦——Github Pages+Hexo搭建个人博客</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">          
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-15T12:00:00+08:00">
+                2018-07-15
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-07-15T23:51:01+08:00">
+                2018-07-15
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/博客搭建/" itemprop="url" rel="index">
+                    <span itemprop="name">博客搭建</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+          
+          
+            <span class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,139
+                </span>
+              
+
+              
+
+              
+            </span>
+          
+
+          
+          
+             <span id="/2018/07/15/Setting-up-the-Blog-Post1/" class="leancloud_visitors" data-flag-title="我的博客不是梦——Github Pages+Hexo搭建个人博客">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li><strong>Github Pages</strong>是面向用户、组织和项目开放的公共静态页面搭建托管服务，站点可以被<strong>免费</strong>托管在Github 上，你可以选择使用Github Pages默认提供的域名github.io或者自定义域名来发布站点；</li>
+<li><strong>Hexo</strong>是一个快速、简洁且高效的博客框架。Hexo 使用Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页；</li>
+<li>入门级文章，所有操作基于<strong>Windows系统</strong>；文中<strong>打开文件</strong>所用的软件是<a href="https://pc.qq.com/detail/6/detail_23026.html" title="Notepad++软件下载" target="_blank" rel="noopener">Notepad++</a>（免费）或<a href="http://www.sublimetextcn.com/" title="Sublime Text 3下载，自己上网找有效的user licence" target="_blank" rel="noopener">Sublime Text</a>（需要user license）。</li>
+</ul>
+<h2 id="前期工作"><a href="#前期工作" class="headerlink" title="前期工作"></a>前期工作</h2><blockquote>
+<p><strong>软件安装</strong>：与普通软件安装方式一样；安装过程中，若有<code>Add to PATH</code>选项都要勾选。   </p>
+</blockquote>
+<ul>
+<li><a href="https://git-scm.com/download/win" title="Git官网下载相应版本软件包并直接安装" target="_blank" rel="noopener">下载安装Git</a>;     </li>
+<li><a href="https://nodejs.org/en/" title="Node.js官网下载相应版本软件包并直接安装" target="_blank" rel="noopener">下载安装Node.js</a>;</li>
+<li>Git配置：打开<em>Git Bash</em>：<code>开始菜单</code>—&gt;<code>Git</code>—&gt;<code>Git Bash</code>，并依次输入以下代码：  <pre><code>$ git config --global user.name &quot;Your Name&quot;   
+$ git config --global user.email &quot;email@example.com&quot;  
+</code></pre>  <img src="/2018/07/15/Setting-up-the-Blog-Post1/1.png" alt=""></li>
+</ul>
+<h2 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h2><ul>
+<li><strong><a href="https://github.com" target="_blank" rel="noopener">注册并登录Github</a></strong><br><img src="/2018/07/15/Setting-up-the-Blog-Post1/2.png" alt=""></li>
+<li><strong>创建SSH Key</strong>：打开<em>Git Bash</em>或<em>Windows CMD</em>，输入：<code>ssh-keygen -t rsa -C &quot;Github的注册邮箱地址&quot;</code>，一路回车，完成后会在用户目录下生成<code>id_rsa</code>（不能泄露）和<code>id_rsa.pub</code>；
+<img src="/2018/07/15/Setting-up-the-Blog-Post1/3.png" alt=""><img src="/2018/07/15/Setting-up-the-Blog-Post1/4.png" alt=""></li>
+<li><strong>添加SSH Key到Github</strong>：复制<code>id_rsa.pub</code>文件内容进行以下操作(图片来自于<a href="https://baoyuzhang.github.io/2017/04/28/%E3%80%90Hexo%E6%90%AD%E5%BB%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2%E5%85%A8%E7%BA%AA%E5%BD%95%E3%80%91%EF%BC%88%E4%B8%80%EF%BC%89%E4%BD%BF%E7%94%A8Git%E5%92%8CGithub/#Github%E4%B8%AD%E6%B7%BB%E5%8A%A0SSH-Key" target="_blank" rel="noopener">浅茉</a>);
+<img src="/2018/07/15/Setting-up-the-Blog-Post1/5.png" alt=""></li>
+<li><strong>创建仓库</strong>，repository name必须为：<code>your-Github-name.github.io</code>;
+<img src="/2018/07/15/Setting-up-the-Blog-Post1/6.png" alt=""></li>
+</ul>
+<h2 id="基于Hexo搭建博客"><a href="#基于Hexo搭建博客" class="headerlink" title="基于Hexo搭建博客"></a>基于Hexo搭建博客</h2><ul>
+<li><strong>安装Hexo</strong>：<em>Git bash</em>或<em>windows CMD</em>上输入：<code>$ npm install -g hexo-cli</code>；<a href="https://www.jianshu.com/p/073ed36d6ac3" title="nodejs npm 命令行大全" target="_blank" rel="noopener">nmp简介</a>；        </li>
+<li><strong>建站/初始化</strong>：(<a href="https://hexo.io/zh-cn/docs/setup.html" title="Hexo官方使用文档——建站信息" target="_blank" rel="noopener">生成文件简介</a>)：在<em>本地合适盘</em>新建文件夹（用来放blog资料的:例如我的<code>F:\1A--BIG.JUN\Blogs\Blogs</code>）;打开这个空文件夹,右键选择<code>Git Bash Here</code> 。输入：<code>$ hexo init</code>初始化文件夹；<br><img src="/2018/07/15/Setting-up-the-Blog-Post1/7.png" alt=""></li>
+<li><strong>生成静态文件</strong>：<code>$ hexo generate</code>或<code>$ hexo g</code>，生成文件放在<code>public</code>文件夹下；(初始化<em>hexo</em> 之后<em>source</em>目录下自带一篇<em>hello world</em>文章)；<br><img src="/2018/07/15/Setting-up-the-Blog-Post1/8.png" alt=""></li>
+<li><p><strong>本地浏览</strong>： </p>
+<blockquote>
+<p>1、启动本地服务器：输入<code>$ hexo server</code> 或 <code>$ hexo s</code>；<br>2、在浏览器输入：<code>http://localhost:4000</code>，即可显示生成的文章网页;<br>3、停止预览：键盘<code>ctrl+c</code>。<br><img src="/2018/07/15/Setting-up-the-Blog-Post1/9.png" alt=""> <strong>Tip</strong>：<a href="http://blog.haoji.me/windows-port-bind.html?from=xa" title="Windows下如何查看某个端口被占用" target="_blank" rel="noopener">页面不能加载或端口4000被占用情况解决方法</a></p>
+</blockquote>
+</li>
+<li><p><strong>更改主题</strong><br>如果觉得默认主题不好看的，可以更改主题：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">官网主题</a>、<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NexT主题</a>等，以NexT主题为例；`</p>
+<blockquote>
+<p>1、下载主题：<code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code>;
+<img src="/2018/07/15/Setting-up-the-Blog-Post1/10.png" alt=""> 2、应用主题：打开站点配置文件<code>_config.yml</code>，找到<code>theme</code>，更改为<code>next</code>;之后在<em>Git Bash</em>中依次输入：<code>$ hexo clean</code>（清理缓存数据）、<code>$ hexo g</code>、<code>$ hexo s</code>;
+<img src="/2018/07/15/Setting-up-the-Blog-Post1/11.png" alt=""> <img src="/2018/07/15/Setting-up-the-Blog-Post1/12.png" alt="">  <img src="/2018/07/15/Setting-up-the-Blog-Post1/13.png" alt=""> 3、验证主题：浏览器输入<code>http://localhost:4000</code>；
+<img src="/2018/07/15/Setting-up-the-Blog-Post1/14.png" alt=""></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="部署到Github"><a href="#部署到Github" class="headerlink" title="部署到Github"></a>部署到Github</h2><ul>
+<li><strong>网站仓库路径复制</strong><br><img src="/2018/07/15/Setting-up-the-Blog-Post1/15.png" alt=""> </li>
+<li><strong>修改站点配置文件</strong><code>_config.yml</code>,repository设为你刚才复制的仓库路径；<br><img src="/2018/07/15/Setting-up-the-Blog-Post1/16.png" alt=""></li>
+<li><strong>安装Git插件</strong>：<code>$ npm install hexo-deployer-git --save</code>;<br><img src="/2018/07/15/Setting-up-the-Blog-Post1/17.png" alt="">  </li>
+<li><strong>将新生成文件部署到Github</strong>：<code>$ hexo d</code>。<br><img src="/2018/07/15/Setting-up-the-Blog-Post1/18.png" alt=""></li>
+<li><strong>网站验证</strong>：浏览器输入：<code>http://bigjun777.github.io</code>(修改成你的，因为我绑定了域名，所以下图显示的是bigjun.me)。
+<img src="/2018/07/15/Setting-up-the-Blog-Post1/19.png" alt="">  <img src="/2018/07/15/Setting-up-the-Blog-Post1/20.png" alt="">   </li>
+</ul>
+<h2 id="新建文章与发布"><a href="#新建文章与发布" class="headerlink" title="新建文章与发布"></a>新建文章与发布</h2><blockquote>
+<p>至此，我们已经完成了个人博客的搭建，接下来讲一下新建文章与发布。   </p>
+</blockquote>
+<ul>
+<li><strong>新建文章</strong>：<em>Git Bash</em>中输入：<code>$ hexo new &quot;文章名&quot;</code>，看提示在相应目录下能找到<code>*文章名.md</code>文件；<br><img src="/2018/07/15/Setting-up-the-Blog-Post1/21.png" alt=""> </li>
+<li><strong>编辑文章</strong>：使用<a href="https://blog.huihut.com/2017/01/25/MarkdownTutorial/" title="Markdown 简易入门教程--From HuiHut" target="_blank" rel="noopener">Markdown编辑器</a>来进行编写；<br><img src="/2018/07/15/Setting-up-the-Blog-Post1/22.png" alt="">    </li>
+<li><strong>清理缓存、刷新静态文件</strong>：依次输入<code>$ hexo clean</code>与<code>$ hexo g</code>;<br><img src="/2018/07/15/Setting-up-the-Blog-Post1/23.png" alt="">   </li>
+<li><strong>本地服务器浏览、部署Github</strong>：一般情况下我们先在本地<code>$ hexo s</code>本地预览文章格式没问题后，再使用<code>$ hexo d</code>上传到Github仓库,此时在浏览器输入：<code>http://bigjun777.github.io</code>，会看到新文章已经上传。<br><img src="/2018/07/15/Setting-up-the-Blog-Post1/24.png" alt=""></li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>常用命令  <pre><code>$ hexo new &quot;~~~&quot;  #新建文章  
+$ hexo g          #生成静态文件  
+$ hexo s          #本地浏览  
+$ hexo clean      #清理缓存  
+$ hexo d          #部署到Github  
+</code></pre></li>
+<li>上述就是基于Hexo使用Github Pages来搭建个人博客的整个入门流程，至此你已经建好博客的大体框架，知道了如何更新文章。本文旨在记录分享，通过结合前人的教程经由自己实操总结出来，个别片段、图片如有错漏或出现侵权的敬请与我联系，我定当及时处理。下一篇博文更新：<strong>我的博客我做主——Hexo-NexT博客框架优化</strong><br><img src="/2018/07/15/Setting-up-the-Blog-Post1/25.png" alt="">  </li>
+</ul>
+<h2 id="参考资料-拓展阅读"><a href="#参考资料-拓展阅读" class="headerlink" title="参考资料/拓展阅读"></a>参考资料/拓展阅读</h2><p>1、<a href="https://hexo.io/zh-cn/docs/index.html" title="Hexo入门教程" target="_blank" rel="noopener">Hexo官方使用文档</a><br>2、<a href="http://theme-next.iissnan.com/getting-started.html" title="NexT入门教程" target="_blank" rel="noopener">NexT官方使用教程</a><br>3、<a href="http://wangwlj.com/2017/09/08/blog_setup/" target="_blank" rel="noopener">Hexo+GitHub博客搭建实战–From wangwlj</a><br>4、<a href="https://baoyuzhang.github.io/2017/05/12/%E3%80%90Hexo%E6%90%AD%E5%BB%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2%E5%85%A8%E7%BA%AA%E5%BD%95%E3%80%91%EF%BC%88%E4%B8%89%EF%BC%89%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="noopener">Hexo搭建独立博客全纪录（三）使用Hexo搭建博客–From浅茉</a><br>3、<a href="https://blog.csdn.net/yingzigege2/article/details/51150700" title="避免npm下载模块安装在系统盘" target="_blank" rel="noopener">修改npm下载模块安装位置</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+        ------ 本文结束 ------</div>
+
+      </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/15/Setting-up-the-Blog-Post2/" rel="prev" title="我的博客我做主——Hexo-NexT博客框架优化">
+                我的博客我做主——Hexo-NexT博客框架优化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/bigjun.jpg"
+                alt="BIGJUN" />
+            
+              <p class="site-author-name" itemprop="name">BIGJUN</p>
+              <p class="site-description motion-element" itemprop="description">记录生活 分享知识</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/rss2.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/BIGJUN777" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://BIGJUN777.github.io/My-E-mail" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前期工作"><span class="nav-number">2.</span> <span class="nav-text">前期工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Github"><span class="nav-number">3.</span> <span class="nav-text">配置Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于Hexo搭建博客"><span class="nav-number">4.</span> <span class="nav-text">基于Hexo搭建博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到Github"><span class="nav-number">5.</span> <span class="nav-text">部署到Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建文章与发布"><span class="nav-number">6.</span> <span class="nav-text">新建文章与发布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料-拓展阅读"><span class="nav-number">8.</span> <span class="nav-text">参考资料/拓展阅读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BIGJUN</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+  	 <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("RC8uA4h0Nn0KBQQDKddRVwUa-gzGzoHsz", "BLWNc8a1M8dzU0m89Pcbr457");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ': 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+});
+</script>
+  
+    
+
+       
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("RC8uA4h0Nn0KBQQDKddRVwUa-gzGzoHsz", "BLWNc8a1M8dzU0m89Pcbr457");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+ 
+</body>
+</html>
