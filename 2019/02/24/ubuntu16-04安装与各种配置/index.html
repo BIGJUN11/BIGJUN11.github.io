@@ -75,20 +75,20 @@
 
 
 
-<meta name="description" content="启动盘安装Ubuntu16.04踩坑系列  安装完成后不能进入图形界面，尝试重新安装并勾选联网下载第三方软件； 多次安装不成功，可以先通过选择OME模式安装来了解分盘，再重新安装； 分盘时，home分尽量多，不懂的就分好boot、swap（&amp;gt;硬件内存）后将剩下的全分给/；   安装NVIDIA驱动  网上很多人都说直接使用sudo apt-get install nvidia-*安装方式易造">
+<meta name="description" content="启动盘安装Ubuntu16.04踩坑系列  安装完成后不能进入图形界面，尝试重新安装并勾选联网下载第三方软件； 多次安装不成功，可以先通过选择OME模式安装来了解分盘，再重新安装； 分盘时，home分尽量多，不懂的就分好boot、swap（&amp;gt;硬件内存）后将剩下的全分给/；   安装NVIDIA驱动  可先试简单方法：system settings –&amp;gt; software&amp;amp;upd">
 <meta name="keywords" content="ubuntu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu16.04安装与各种配置">
 <meta property="og:url" content="http://yoursite.com/2019/02/24/ubuntu16-04安装与各种配置/index.html">
 <meta property="og:site_name" content="BigJun&#39;s Blog">
-<meta property="og:description" content="启动盘安装Ubuntu16.04踩坑系列  安装完成后不能进入图形界面，尝试重新安装并勾选联网下载第三方软件； 多次安装不成功，可以先通过选择OME模式安装来了解分盘，再重新安装； 分盘时，home分尽量多，不懂的就分好boot、swap（&amp;gt;硬件内存）后将剩下的全分给/；   安装NVIDIA驱动  网上很多人都说直接使用sudo apt-get install nvidia-*安装方式易造">
+<meta property="og:description" content="启动盘安装Ubuntu16.04踩坑系列  安装完成后不能进入图形界面，尝试重新安装并勾选联网下载第三方软件； 多次安装不成功，可以先通过选择OME模式安装来了解分盘，再重新安装； 分盘时，home分尽量多，不懂的就分好boot、swap（&amp;gt;硬件内存）后将剩下的全分给/；   安装NVIDIA驱动  可先试简单方法：system settings –&amp;gt; software&amp;amp;upd">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/H7MlCmc.png">
 <meta property="og:image" content="https://i.imgur.com/dmzSxMV.png">
-<meta property="og:updated_time" content="2019-03-01T06:13:07.160Z">
+<meta property="og:updated_time" content="2019-03-19T11:56:09.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu16.04安装与各种配置">
-<meta name="twitter:description" content="启动盘安装Ubuntu16.04踩坑系列  安装完成后不能进入图形界面，尝试重新安装并勾选联网下载第三方软件； 多次安装不成功，可以先通过选择OME模式安装来了解分盘，再重新安装； 分盘时，home分尽量多，不懂的就分好boot、swap（&amp;gt;硬件内存）后将剩下的全分给/；   安装NVIDIA驱动  网上很多人都说直接使用sudo apt-get install nvidia-*安装方式易造">
+<meta name="twitter:description" content="启动盘安装Ubuntu16.04踩坑系列  安装完成后不能进入图形界面，尝试重新安装并勾选联网下载第三方软件； 多次安装不成功，可以先通过选择OME模式安装来了解分盘，再重新安装； 分盘时，home分尽量多，不懂的就分好boot、swap（&amp;gt;硬件内存）后将剩下的全分给/；   安装NVIDIA驱动  可先试简单方法：system settings –&amp;gt; software&amp;amp;upd">
 <meta name="twitter:image" content="https://i.imgur.com/H7MlCmc.png">
 
 
@@ -318,8 +318,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-01T14:13:07+08:00">
-                2019-03-01
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-19T19:56:09+08:00">
+                2019-03-19
               </time>
             
           </span>
@@ -365,7 +365,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,026
+                  1,082
                 </span>
               
 
@@ -413,7 +413,12 @@
 <li>分盘时，<code>home</code>分尽量多，不懂的就分好<code>boot</code>、<code>swap</code>（&gt;硬件内存）后将剩下的全分给<code>/</code>；</li>
 </ol>
 </blockquote>
-<h2 id="安装NVIDIA驱动"><a href="#安装NVIDIA驱动" class="headerlink" title="安装NVIDIA驱动"></a>安装NVIDIA驱动</h2><blockquote>
+<h2 id="安装NVIDIA驱动"><a href="#安装NVIDIA驱动" class="headerlink" title="安装NVIDIA驱动"></a>安装NVIDIA驱动</h2><hr>
+<blockquote>
+<p><strong>可先试简单方法</strong>：<code>system settings</code> –&gt; <code>software&amp;update</code> –&gt; <code>additional drivers</code></p>
+</blockquote>
+<hr>
+<blockquote>
 <ol>
 <li>网上很多人都说直接使用<code>sudo apt-get install nvidia-*</code><a href="https://blog.csdn.net/Hansry/article/details/81008210" target="_blank" rel="noopener">安装方式</a>易造成登录界面循环;   </li>
 <li>ubuntu 16.04默认安装了第三方开源的驱动程序nouveau，安装nvidia显卡驱动首先需要禁用nouveau，不然会碰到冲突的问题，导致无法安装nvidia显卡驱动。</li>
@@ -449,7 +454,7 @@
 <p>关闭图形界面：<code>sudo service lightdm stop</code><br>卸载原有驱动：<code>sudo apt-get remove nvidia-*</code></p>
 </blockquote>
 </li>
-<li><p>安装对应版本驱动，过程中的安装选项直接默认回车</p>
+<li><p>安装对应版本驱动，（<strong>注意<code>no</code>前面是两条横线</strong>）过程中的安装选项直接默认回车</p>
 <blockquote>
 <p>sudo chmod  a+x NVIDIA-Linux-x86_64-396.18.run<br>sudo ./NVIDIA-Linux-x86_64-396.18.run –no-opengl-files</p>
 </blockquote>
@@ -465,6 +470,9 @@
 </blockquote>
 </li>
 </ol>
+<h2 id="安装CUDA、CUDNN"><a href="#安装CUDA、CUDNN" class="headerlink" title="安装CUDA、CUDNN"></a>安装CUDA、CUDNN</h2><blockquote>
+<p><a href="http://www.twistedwg.com/2018/06/15/cuda9_cudnn7.html" target="_blank" rel="noopener">传送门</a>:下载cudnn时选择<code>Libary for linux</code></p>
+</blockquote>
 <h2 id="安装ROS-Kinetic"><a href="#安装ROS-Kinetic" class="headerlink" title="安装ROS Kinetic"></a>安装ROS Kinetic</h2><h3 id="配置软件仓库"><a href="#配置软件仓库" class="headerlink" title="配置软件仓库"></a>配置软件仓库</h3><blockquote>
 <p><a href="http://people.ubuntu.com/~happyaron/udc-cn/lucid-html/ch06s09.html" target="_blank" rel="noopener">软件仓库</a>：收藏专门为Ubuntu构建和挑选的软件包的仓库。   </p>
 </blockquote>
@@ -529,7 +537,10 @@ $ sudo apt-get install emacs-snapshot emacs-snapshot-el
 <h2 id="安装shadowsocks-qt5"><a href="#安装shadowsocks-qt5" class="headerlink" title="安装shadowsocks-qt5"></a><a href="https://www.litcc.com/2016/12/29/Ubuntu16-shadowsocks-pac/index.html" target="_blank" rel="noopener">安装shadowsocks-qt5</a></h2><blockquote>
 <p><a href="https://pan.baidu.com/s/1Qwr1PnEkOkd4GmVu7_820g" target="_blank" rel="noopener">SwitchOmega配置文件</a></p>
 </blockquote>
-
+<h2 id="安装MATLAB2017a"><a href="#安装MATLAB2017a" class="headerlink" title="安装MATLAB2017a"></a><a href="https://blog.csdn.net/qq_31285709/article/details/82083902" target="_blank" rel="noopener">安装MATLAB2017a</a></h2><blockquote>
+<p>建立软链：<code>ln -s &lt;path_to_execuable&gt; &lt;path_to_direction&gt;</code><br><a href="http://petercorke.com/wordpress/toolboxes/robotics-toolbox" target="_blank" rel="noopener">安装RVC Toolox</a> </p>
+</blockquote>
+<h2 id="安装remarkable"><a href="#安装remarkable" class="headerlink" title="安装remarkable"></a><a href="https://blog.csdn.net/qq_41376740/article/details/79216487" target="_blank" rel="noopener">安装remarkable</a></h2>
       
     </div>
     
@@ -666,7 +677,7 @@ $ sudo apt-get install emacs-snapshot emacs-snapshot-el
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -677,7 +688,7 @@ $ sudo apt-get install emacs-snapshot emacs-snapshot-el
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -688,7 +699,7 @@ $ sudo apt-get install emacs-snapshot emacs-snapshot-el
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -744,7 +755,7 @@ $ sudo apt-get install emacs-snapshot emacs-snapshot-el
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启动盘安装Ubuntu16-04"><span class="nav-number">1.</span> <span class="nav-text">启动盘安装Ubuntu16.04</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#踩坑系列"><span class="nav-number">1.1.</span> <span class="nav-text">踩坑系列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装NVIDIA驱动"><span class="nav-number">2.</span> <span class="nav-text">安装NVIDIA驱动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载驱动"><span class="nav-number">2.1.</span> <span class="nav-text">下载驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装驱动"><span class="nav-number">2.2.</span> <span class="nav-text">安装驱动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装ROS-Kinetic"><span class="nav-number">3.</span> <span class="nav-text">安装ROS Kinetic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置软件仓库"><span class="nav-number">3.1.</span> <span class="nav-text">配置软件仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加sources-list"><span class="nav-number">3.2.</span> <span class="nav-text">添加sources.list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置key（密钥）"><span class="nav-number">3.3.</span> <span class="nav-text">设置key（密钥）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">3.4.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化rosdep"><span class="nav-number">3.5.</span> <span class="nav-text">初始化rosdep</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装build依赖"><span class="nav-number">3.6.</span> <span class="nav-text">安装build依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境配置"><span class="nav-number">3.7.</span> <span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装ROS书本CODE-amp-amp-PACKAGE"><span class="nav-number">3.8.</span> <span class="nav-text">安装ROS书本CODE&amp;&amp;PACKAGE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ROS中安装、使用华硕摄像头及使用ROSbag存储摄像头数据"><span class="nav-number">3.9.</span> <span class="nav-text">ROS中安装、使用华硕摄像头及使用ROSbag存储摄像头数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装anaconda"><span class="nav-number">4.</span> <span class="nav-text">安装anaconda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装roboware-studio"><span class="nav-number">5.</span> <span class="nav-text">安装roboware studio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化新硬盘并挂载"><span class="nav-number">6.</span> <span class="nav-text">格式化新硬盘并挂载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu上安装Emacs"><span class="nav-number">7.</span> <span class="nav-text">ubuntu上安装Emacs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装shadowsocks-qt5"><span class="nav-number">8.</span> <span class="nav-text">安装shadowsocks-qt5</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启动盘安装Ubuntu16-04"><span class="nav-number">1.</span> <span class="nav-text">启动盘安装Ubuntu16.04</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#踩坑系列"><span class="nav-number">1.1.</span> <span class="nav-text">踩坑系列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装NVIDIA驱动"><span class="nav-number">2.</span> <span class="nav-text">安装NVIDIA驱动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载驱动"><span class="nav-number">2.1.</span> <span class="nav-text">下载驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装驱动"><span class="nav-number">2.2.</span> <span class="nav-text">安装驱动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装CUDA、CUDNN"><span class="nav-number">3.</span> <span class="nav-text">安装CUDA、CUDNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装ROS-Kinetic"><span class="nav-number">4.</span> <span class="nav-text">安装ROS Kinetic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置软件仓库"><span class="nav-number">4.1.</span> <span class="nav-text">配置软件仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加sources-list"><span class="nav-number">4.2.</span> <span class="nav-text">添加sources.list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置key（密钥）"><span class="nav-number">4.3.</span> <span class="nav-text">设置key（密钥）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">4.4.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化rosdep"><span class="nav-number">4.5.</span> <span class="nav-text">初始化rosdep</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装build依赖"><span class="nav-number">4.6.</span> <span class="nav-text">安装build依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境配置"><span class="nav-number">4.7.</span> <span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装ROS书本CODE-amp-amp-PACKAGE"><span class="nav-number">4.8.</span> <span class="nav-text">安装ROS书本CODE&amp;&amp;PACKAGE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ROS中安装、使用华硕摄像头及使用ROSbag存储摄像头数据"><span class="nav-number">4.9.</span> <span class="nav-text">ROS中安装、使用华硕摄像头及使用ROSbag存储摄像头数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装anaconda"><span class="nav-number">5.</span> <span class="nav-text">安装anaconda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装roboware-studio"><span class="nav-number">6.</span> <span class="nav-text">安装roboware studio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化新硬盘并挂载"><span class="nav-number">7.</span> <span class="nav-text">格式化新硬盘并挂载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu上安装Emacs"><span class="nav-number">8.</span> <span class="nav-text">ubuntu上安装Emacs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装shadowsocks-qt5"><span class="nav-number">9.</span> <span class="nav-text">安装shadowsocks-qt5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装MATLAB2017a"><span class="nav-number">10.</span> <span class="nav-text">安装MATLAB2017a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装remarkable"><span class="nav-number">11.</span> <span class="nav-text">安装remarkable</span></a></li></ol></div>
             
 
           </div>
