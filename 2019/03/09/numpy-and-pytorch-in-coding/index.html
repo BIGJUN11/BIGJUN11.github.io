@@ -83,7 +83,7 @@
 <meta property="og:site_name" content="BigJun&#39;s Blog">
 <meta property="og:description" content="NumpyNumpy从数值范围创建数组：arange()、linspace()、logsapce() numpy.arange(start=0, stop, step=1, dtype):  start 与 stop 指定的范围以及 step 设定的步长，生成一个 ndarray,不包含stop值；   np.linspace(start, stop, num=50, endpoint=True,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-24T12:17:38.470Z">
+<meta property="og:updated_time" content="2019-06-13T13:24:15.179Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data processing with numpy or pytorch">
 <meta name="twitter:description" content="NumpyNumpy从数值范围创建数组：arange()、linspace()、logsapce() numpy.arange(start=0, stop, step=1, dtype):  start 与 stop 指定的范围以及 step 设定的步长，生成一个 ndarray,不包含stop值；   np.linspace(start, stop, num=50, endpoint=True,">
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-24T20:17:38+08:00">
-                2019-03-24
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-13T21:24:15+08:00">
+                2019-06-13
               </time>
             
           </span>
@@ -340,7 +340,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  118
+                  322
                 </span>
               
 
@@ -386,7 +386,29 @@
 <li><code>np.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None)</code>:    创建一个等差数列构成的一维数组，<code>num</code>为样本量；  </li>
 <li><code>np.logspace(start, stop, num=50, endpoint=True, base=10.0, dtype=None)</code>: 创建一个等比数列构成的一维数组，<code>base</code>为底；</li>
 </ul>
-<h1 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h1><h2 id="pytorch中torch-view-、squeeze-、unsqueeze-、max"><a href="#pytorch中torch-view-、squeeze-、unsqueeze-、max" class="headerlink" title="pytorch中torch.view()、squeeze()、unsqueeze()、max()"></a><a href="https://blog.csdn.net/lanse_zhicheng/article/details/79148678#commentBox" target="_blank" rel="noopener">pytorch中torch.view()、squeeze()、unsqueeze()、max()</a></h2>
+<h1 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h1><h2 id="pytorch中torch-view-、squeeze-、unsqueeze-、max"><a href="#pytorch中torch-view-、squeeze-、unsqueeze-、max" class="headerlink" title="pytorch中torch.view()、squeeze()、unsqueeze()、max()"></a><a href="https://blog.csdn.net/lanse_zhicheng/article/details/79148678#commentBox" target="_blank" rel="noopener">pytorch中torch.view()、squeeze()、unsqueeze()、max()</a></h2><p>numel()<br>permute()<br>tqdm
+fire
+网络参数初始化问题
+<a href="https://cloud.tencent.com/developer/ask/51836" target="_blank" rel="noopener">meshgrid()</a>
+stack
+ravel
+np.newaxis
+where
+astype()</p>
+<p>numpy.prob()连乘
+assert</p>
+<p>a.shape=(1,4,4)
+a[:,:,0::4].shape=(1,4,1)
+而a[:,:,0].shape=(1,4)</p>
+<p>if set model.eval() ——&gt; model.training = Flase</p>
+<p><a href="https://blog.csdn.net/weixin_41010198/article/details/84828022" target="_blank" rel="noopener">python类方法中使用：修饰符@staticmethod和@classmethod的作用与区别，还有装饰器@property的使用</a></p>
+<p><a href="https://blog.csdn.net/u011501388/article/details/84062483" target="_blank" rel="noopener">PyTorch之前向传播函数forward</a></p>
+<p>open.cv读入图片的尺寸是（H,W,C）</p>
+<p>Input type(torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be he same:::原因可能是model放进了GPU而输入数据没有放到GPU。</p>
+<p>expected object of backend CPU but got backend CUDA    for sequence element 1 in sequence argument at position #1 ‘tensors’:CUDA与CPU的数据不能混在一起运算，不会自由转换，<a href="https://www.zhihu.com/question/67209417" target="_blank" rel="noopener">门</a></p>
+<p>when set model.eval(), self.training/model.training = False?</p>
+<p><a href="https://discuss.pytorch.org/t/torch-from-numpy-not-support-negative-strides/3663" target="_blank" rel="noopener">ValueError: some of the strides of a given numpy array are negative. This is currently not supported, but will be added in future releases.</a> </p>
+
       
     </div>
     
@@ -429,7 +451,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/24/RNN-LSTM/" rel="prev" title="RNN&&LSTM">
+              <a href="/2019/03/24/DL_RNN-LSTM/" rel="prev" title="RNN&&LSTM">
                 RNN&&LSTM <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -517,7 +539,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -528,7 +550,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -539,7 +561,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -85,7 +85,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/H7MlCmc.png">
 <meta property="og:image" content="https://i.imgur.com/dmzSxMV.png">
-<meta property="og:updated_time" content="2019-04-02T11:21:31.086Z">
+<meta property="og:updated_time" content="2019-09-04T09:37:54.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu16.04安装与各种配置">
 <meta name="twitter:description" content="启动盘安装Ubuntu16.04踩坑系列  安装完成后不能进入图形界面，尝试重新安装并勾选联网下载第三方软件； 多次安装不成功，可以先通过选择OME模式安装来了解分盘，再重新安装； 分盘时，home分尽量多，不懂的就分好boot、swap（&amp;gt;硬件内存）后将剩下的全分给/；   安装NVIDIA驱动  可先试简单方法：system settings –&amp;gt; software&amp;amp;upd">
@@ -318,8 +318,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-02T19:21:31+08:00">
-                2019-04-02
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-04T17:37:54+08:00">
+                2019-09-04
               </time>
             
           </span>
@@ -365,7 +365,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,101
+                  1,321
                 </span>
               
 
@@ -521,6 +521,9 @@ $ source ~/.bashrc
 </ol>
 </blockquote>
 </blockquote>
+<h3 id="官网下载Baxter包"><a href="#官网下载Baxter包" class="headerlink" title="官网下载Baxter包"></a>官网下载Baxter包</h3><blockquote>
+<p>可能版本更新问题，建议删除上述脚本下载的baxter相应的包，重新从<a href="https://blog.csdn.net/Hansry/article/details/81045196" target="_blank" rel="noopener">官网下载</a>。   </p>
+</blockquote>
 <h3 id="ROS中安装、使用华硕摄像头及使用ROSbag存储摄像头数据"><a href="#ROS中安装、使用华硕摄像头及使用ROSbag存储摄像头数据" class="headerlink" title="ROS中安装、使用华硕摄像头及使用ROSbag存储摄像头数据"></a><a href="https://blog.csdn.net/jack20030552/article/details/80249231" target="_blank" rel="noopener">ROS中安装、使用华硕摄像头及使用ROSbag存储摄像头数据</a></h3><h2 id="安装anaconda"><a href="#安装anaconda" class="headerlink" title="安装anaconda"></a><a href="https://mirror.tuna.tsinghua.edu.cn/help/anaconda/" target="_blank" rel="noopener">安装anaconda</a></h2><blockquote>
 <p>直接下载包，改权限<code>chmod +x ...</code>安装；<br>所谓的版本对应问题是：安装anaconda时会在<code>base</code>环境安装对应版本的Python </p>
 </blockquote>
@@ -538,9 +541,33 @@ $ sudo apt-get install emacs-snapshot emacs-snapshot-el
 <p><a href="https://pan.baidu.com/s/1Qwr1PnEkOkd4GmVu7_820g" target="_blank" rel="noopener">SwitchOmega配置文件</a></p>
 </blockquote>
 <h2 id="安装MATLAB2017a"><a href="#安装MATLAB2017a" class="headerlink" title="安装MATLAB2017a"></a><a href="https://blog.csdn.net/qq_31285709/article/details/82083902" target="_blank" rel="noopener">安装MATLAB2017a</a></h2><blockquote>
-<p>建立软链：<code>ln -s &lt;path_to_execuable&gt; &lt;path_to_direction&gt;</code><br><a href="http://petercorke.com/wordpress/toolboxes/robotics-toolbox" target="_blank" rel="noopener">安装RVC Toolox</a><br><code>sudo chmod -R 777 &lt;PACKAGE&gt;</code>、<code>sudo chown -R birl &lt;PACKAGE&gt;</code><br>卸载直接删掉安装包；</p>
+<ul>
+<li>建立软链：<code>ln -s &lt;path_to_execuable&gt; &lt;path_to_direction&gt;</code>   </li>
+<li><a href="http://petercorke.com/wordpress/toolboxes/robotics-toolbox" target="_blank" rel="noopener">安装RVC Toolox</a>、<a href="https://blog.csdn.net/qq_24182661/article/details/83309100" target="_blank" rel="noopener">路径设置</a>   </li>
+<li><code>sudo chmod -R 777 &lt;PACKAGE&gt;</code>、<code>sudo chown -R birl &lt;PACKAGE&gt;</code>   </li>
+<li>卸载直接删掉安装包；</li>
+</ul>
 </blockquote>
-<h2 id="安装remarkable"><a href="#安装remarkable" class="headerlink" title="安装remarkable"></a><a href="https://blog.csdn.net/qq_41376740/article/details/79216487" target="_blank" rel="noopener">安装remarkable</a></h2>
+<h2 id="安装remarkable"><a href="#安装remarkable" class="headerlink" title="安装remarkable"></a><a href="https://blog.csdn.net/qq_41376740/article/details/79216487" target="_blank" rel="noopener">安装remarkable</a></h2><h2 id="安装openCV"><a href="#安装openCV" class="headerlink" title="安装openCV"></a>安装openCV</h2><ul>
+<li><p>源码编译安装：<a href="https://changwh.github.io/2019/04/20/install-opencv3.4.4-in-anaconda3-vitrualenv-with-python3.6/" target="_blank" rel="noopener">传送门1</a>、<a href="https://www.jianshu.com/p/c42fc8702f2b" target="_blank" rel="noopener">传送门2</a>   </p>
+<blockquote>
+<p>1) 建议直接在本机环境编译；<br>2）安装路径可任选：<code>-D CMAKE_INSTALL_PREFIX=...</code>;<br>3）<strong>记得创建软链</strong>：ln -s …<br>4）<a href="https://blog.csdn.net/weixin_38870322/article/details/82631505" target="_blank" rel="noopener">由于CUDA版本问题尝试解决方案</a>   </p>
+</blockquote>
+</li>
+<li><p>源码不成功就直接安装吧(可能会缺部分模块)：<code>conda install --channel https://conda.anaconda.org/menpo opencv3</code>     </p>
+</li>
+<li><p>不能将<code>/opt/ros/kinetic/lib/python2.7/dist-packages/cv2.so</code>链接到conda Python3环境中：因为ROS包下的OpenCV应该是用Python2参与编译的；</p>
+</li>
+<li><p>解决anaconda环境中<code>import cv2</code>时会链接到ros中cv2而报错：源于<code>PYTHONPATH</code>变量设定，解决<a href="https://stackoverflow.com/questions/43019951/after-install-ros-kinetic-cannot-import-opencv" target="_blank" rel="noopener">方案1</a>、<a href="https://blog.csdn.net/qq_34544129/article/details/81946494" target="_blank" rel="noopener">中文</a></p>
+<blockquote>
+<p>add <code>unset PYTHONPATH</code> into <code>/home/birl/anaconda3/etc/profile.d/conda.sh</code></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Why-do-I-have-two-Alt-Tab-application-switchers"><a href="#Why-do-I-have-two-Alt-Tab-application-switchers" class="headerlink" title="Why do I have two Alt+Tab application switchers?"></a>Why do I have two Alt+Tab application switchers?</h2><ul>
+<li><a href="https://askubuntu.com/questions/828572/why-do-i-have-two-alttab-application-switchers" target="_blank" rel="noopener">传送门</a></li>
+</ul>
+
       
     </div>
     
@@ -677,7 +704,7 @@ $ sudo apt-get install emacs-snapshot emacs-snapshot-el
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -688,7 +715,7 @@ $ sudo apt-get install emacs-snapshot emacs-snapshot-el
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -699,7 +726,7 @@ $ sudo apt-get install emacs-snapshot emacs-snapshot-el
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -755,7 +782,7 @@ $ sudo apt-get install emacs-snapshot emacs-snapshot-el
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启动盘安装Ubuntu16-04"><span class="nav-number">1.</span> <span class="nav-text">启动盘安装Ubuntu16.04</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#踩坑系列"><span class="nav-number">1.1.</span> <span class="nav-text">踩坑系列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装NVIDIA驱动"><span class="nav-number">2.</span> <span class="nav-text">安装NVIDIA驱动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载驱动"><span class="nav-number">2.1.</span> <span class="nav-text">下载驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装驱动"><span class="nav-number">2.2.</span> <span class="nav-text">安装驱动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装CUDA、CUDNN"><span class="nav-number">3.</span> <span class="nav-text">安装CUDA、CUDNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装ROS-Kinetic"><span class="nav-number">4.</span> <span class="nav-text">安装ROS Kinetic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置软件仓库"><span class="nav-number">4.1.</span> <span class="nav-text">配置软件仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加sources-list"><span class="nav-number">4.2.</span> <span class="nav-text">添加sources.list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置key（密钥）"><span class="nav-number">4.3.</span> <span class="nav-text">设置key（密钥）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">4.4.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化rosdep"><span class="nav-number">4.5.</span> <span class="nav-text">初始化rosdep</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装build依赖"><span class="nav-number">4.6.</span> <span class="nav-text">安装build依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境配置"><span class="nav-number">4.7.</span> <span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装ROS书本CODE-amp-amp-PACKAGE"><span class="nav-number">4.8.</span> <span class="nav-text">安装ROS书本CODE&amp;&amp;PACKAGE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ROS中安装、使用华硕摄像头及使用ROSbag存储摄像头数据"><span class="nav-number">4.9.</span> <span class="nav-text">ROS中安装、使用华硕摄像头及使用ROSbag存储摄像头数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装anaconda"><span class="nav-number">5.</span> <span class="nav-text">安装anaconda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装roboware-studio"><span class="nav-number">6.</span> <span class="nav-text">安装roboware studio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化新硬盘并挂载"><span class="nav-number">7.</span> <span class="nav-text">格式化新硬盘并挂载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu上安装Emacs"><span class="nav-number">8.</span> <span class="nav-text">ubuntu上安装Emacs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装shadowsocks-qt5"><span class="nav-number">9.</span> <span class="nav-text">安装shadowsocks-qt5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装MATLAB2017a"><span class="nav-number">10.</span> <span class="nav-text">安装MATLAB2017a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装remarkable"><span class="nav-number">11.</span> <span class="nav-text">安装remarkable</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启动盘安装Ubuntu16-04"><span class="nav-number">1.</span> <span class="nav-text">启动盘安装Ubuntu16.04</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#踩坑系列"><span class="nav-number">1.1.</span> <span class="nav-text">踩坑系列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装NVIDIA驱动"><span class="nav-number">2.</span> <span class="nav-text">安装NVIDIA驱动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载驱动"><span class="nav-number">2.1.</span> <span class="nav-text">下载驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装驱动"><span class="nav-number">2.2.</span> <span class="nav-text">安装驱动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装CUDA、CUDNN"><span class="nav-number">3.</span> <span class="nav-text">安装CUDA、CUDNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装ROS-Kinetic"><span class="nav-number">4.</span> <span class="nav-text">安装ROS Kinetic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置软件仓库"><span class="nav-number">4.1.</span> <span class="nav-text">配置软件仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加sources-list"><span class="nav-number">4.2.</span> <span class="nav-text">添加sources.list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置key（密钥）"><span class="nav-number">4.3.</span> <span class="nav-text">设置key（密钥）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">4.4.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化rosdep"><span class="nav-number">4.5.</span> <span class="nav-text">初始化rosdep</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装build依赖"><span class="nav-number">4.6.</span> <span class="nav-text">安装build依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境配置"><span class="nav-number">4.7.</span> <span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装ROS书本CODE-amp-amp-PACKAGE"><span class="nav-number">4.8.</span> <span class="nav-text">安装ROS书本CODE&amp;&amp;PACKAGE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#官网下载Baxter包"><span class="nav-number">4.9.</span> <span class="nav-text">官网下载Baxter包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ROS中安装、使用华硕摄像头及使用ROSbag存储摄像头数据"><span class="nav-number">4.10.</span> <span class="nav-text">ROS中安装、使用华硕摄像头及使用ROSbag存储摄像头数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装anaconda"><span class="nav-number">5.</span> <span class="nav-text">安装anaconda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装roboware-studio"><span class="nav-number">6.</span> <span class="nav-text">安装roboware studio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化新硬盘并挂载"><span class="nav-number">7.</span> <span class="nav-text">格式化新硬盘并挂载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu上安装Emacs"><span class="nav-number">8.</span> <span class="nav-text">ubuntu上安装Emacs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装shadowsocks-qt5"><span class="nav-number">9.</span> <span class="nav-text">安装shadowsocks-qt5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装MATLAB2017a"><span class="nav-number">10.</span> <span class="nav-text">安装MATLAB2017a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装remarkable"><span class="nav-number">11.</span> <span class="nav-text">安装remarkable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装openCV"><span class="nav-number">12.</span> <span class="nav-text">安装openCV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-do-I-have-two-Alt-Tab-application-switchers"><span class="nav-number">13.</span> <span class="nav-text">Why do I have two Alt+Tab application switchers?</span></a></li></ol></div>
             
 
           </div>

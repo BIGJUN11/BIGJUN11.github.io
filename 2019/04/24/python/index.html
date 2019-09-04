@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/website_icon2.png?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="BigJun's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="BasicNumpy数组不能直接做判断 如果直接使用np.ndarray类型变量直接做判断语句（如下，b是否有值），则会报错：The true value of an array with more than one element is ambiguous(具有多个元素的数组的真值是不明确的!)   123456a = tuple([1,2,3]) #type: tuple b = np.arr">
+<meta name="keywords" content="记录 分享">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python">
+<meta property="og:url" content="http://yoursite.com/2019/04/24/python/index.html">
+<meta property="og:site_name" content="BigJun&#39;s Blog">
+<meta property="og:description" content="BasicNumpy数组不能直接做判断 如果直接使用np.ndarray类型变量直接做判断语句（如下，b是否有值），则会报错：The true value of an array with more than one element is ambiguous(具有多个元素的数组的真值是不明确的!)   123456a = tuple([1,2,3]) #type: tuple b = np.arr">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-16T13:23:27.987Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python">
+<meta name="twitter:description" content="BasicNumpy数组不能直接做判断 如果直接使用np.ndarray类型变量直接做判断语句（如下，b是否有值），则会报错：The true value of an array with more than one element is ambiguous(具有多个元素的数组的真值是不明确的!)   123456a = tuple([1,2,3]) #type: tuple b = np.arr">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/24/python/"/>
+
+
+
+
+
+  <title>python | BigJun's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BigJun's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live and let live</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/24/python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BIGJUN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/bigjun.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BigJun's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">          
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-24T20:31:38+08:00">
+                2019-04-24
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-16T21:23:27+08:00">
+                2019-06-16
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+          
+          
+            <span class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  480
+                </span>
+              
+
+              
+
+              
+            </span>
+          
+
+          
+          
+             <span id="/2019/04/24/python/" class="leancloud_visitors" data-flag-title="python">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h2><h3 id="Numpy数组不能直接做判断"><a href="#Numpy数组不能直接做判断" class="headerlink" title="Numpy数组不能直接做判断"></a>Numpy数组不能直接做判断</h3><ul>
+<li><p>如果直接使用np.ndarray类型变量直接做判断语句（如下，<code>b</code>是否有值），则会报错：<code>The true value of an array with more than one element is ambiguous(具有多个元素的数组的真值是不明确的!)</code></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = tuple([1,2,3]) #type: tuple </span><br><span class="line">b = np.array(a)	   #type: ndarray</span><br><span class="line">if a:			   #can pass</span><br><span class="line">	print(a)   </span><br><span class="line">if b:			   #raise error</span><br><span class="line">	print(b)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解决方法：将<code>if b</code>——&gt;<code>if b is not None:</code>或<code>if list(b)/tuple(b):</code>。</p>
+</li>
+</ul>
+<h3 id="argparse模块使用"><a href="#argparse模块使用" class="headerlink" title="argparse模块使用"></a>argparse模块使用</h3><h3 id="使用os模块创建文件夹"><a href="#使用os模块创建文件夹" class="headerlink" title="使用os模块创建文件夹"></a>使用<a href="http://www.runoob.com/python/os-file-methods.html" target="_blank" rel="noopener">os模块</a>创建文件夹</h3><blockquote>
+<p>一般先使用<code>os.path.exists(path)</code>来检查相应文件夹是否存在</p>
+<ol>
+<li>使用<code>os.mkdir(path)</code>创建目录；</li>
+<li>使用<code>os.makedirs(path)</code>递归创建目录；</li>
+</ol>
+</blockquote>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if not os.path.exists(path):</span><br><span class="line">	os.makedirs(path)</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="多维数组增加维度"><a href="#多维数组增加维度" class="headerlink" title="多维数组增加维度"></a>多维数组增加维度</h3><blockquote>
+<p>mean_X[:, None]<br>mean_X[:, np.newaxis]<br>mean_X = np.expand_dims(mean_X, axis=1)</p>
+</blockquote>
+<h2 id="Develop"><a href="#Develop" class="headerlink" title="Develop"></a>Develop</h2><h3 id="python包中-init-py"><a href="#python包中-init-py" class="headerlink" title="python包中__init__.py"></a>python包中<code>__init__.py</code></h3><ul>
+<li>将该目录作为Python package的标识；  </li>
+<li>定义package中的<code>_all_</code>,用于模糊导入；   </li>
+<li><a href="https://blog.csdn.net/qq_40794377/article/details/80273668" target="_blank" rel="noopener">传送门</a></li>
+</ul>
+<h3 id="sys与os模块"><a href="#sys与os模块" class="headerlink" title="sys与os模块"></a><a href="https://www.zhihu.com/question/31843617" target="_blank" rel="noopener">sys与os模块</a></h3><blockquote>
+<p>os: This module provides a portable way of using <strong>operating system</strong> dependent functionality.<br>sys: This module provides access to some variables used or maintained by the <strong>interpreter</strong> and to functions that interact strongly with the interpreter.<br>os模块负责程序与操作系统的交互，提供了访问操作系统底层的接口;sys模块负责程序与python解释器的交互，提供了一系列的函数和变量，用于<strong>操控python的运行时环境</strong>。</p>
+</blockquote>
+<h3 id="Python中dist-packages和site-packages区别"><a href="#Python中dist-packages和site-packages区别" class="headerlink" title="Python中dist-packages和site-packages区别"></a><a href="https://blog.csdn.net/huiseguiji1/article/details/45111891" target="_blank" rel="noopener">Python中dist-packages和site-packages区别</a></h3><ul>
+<li>sudo apt-get install 安装的package存放在 /usr/lib/python2.7/dist-packages目录中    </li>
+<li>pip 或者 easy_install安装的package存放在/usr/local/lib/python2.7/dist-packages目录    </li>
+<li>手动从源代码安装的package存放在site-packages目录中;</li>
+</ul>
+<h3 id="命令行运行程序可选项：python-h"><a href="#命令行运行程序可选项：python-h" class="headerlink" title="命令行运行程序可选项：python -h"></a>命令行运行程序可选项：<code>python -h</code></h3><ul>
+<li><code>$ python -E file.py</code>：忽略所有<code>PYTHON*</code>环境变量,如<code>PYTHONPATH</code>;</li>
+<li><code>$ python -m pdb/ipdb file.py</code>：调试模式；</li>
+</ul>
+<h3 id="pdb调试"><a href="#pdb调试" class="headerlink" title="pdb调试"></a>pdb调试</h3><ul>
+<li><a href="https://blog.csdn.net/qingkong1994/article/details/80038199" target="_blank" rel="noopener">常用命令</a></li>
+</ul>
+<h2 id="Common-errors"><a href="#Common-errors" class="headerlink" title="Common errors"></a>Common errors</h2><h3 id="invalid-syntax"><a href="#invalid-syntax" class="headerlink" title="invalid syntax"></a>invalid syntax</h3><ul>
+<li>如果在显示错误处语法正确，请检查前一语句是否漏了括号；</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+        ------ 本文结束 ------</div>
+
+      </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/14/1posts-supplement/" rel="next" title="posts_supplement">
+                <i class="fa fa-chevron-left"></i> posts_supplement
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/25/DL_Attention/" rel="prev" title="Attention">
+                Attention <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODA3My8xNDYwMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/bigjun.jpg"
+                alt="BIGJUN" />
+            
+              <p class="site-author-name" itemprop="name">BIGJUN</p>
+              <p class="site-description motion-element" itemprop="description">记录生活 分享知识</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/rss2.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/BIGJUN777" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhijunliang777@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic"><span class="nav-number">1.</span> <span class="nav-text">Basic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Numpy数组不能直接做判断"><span class="nav-number">1.1.</span> <span class="nav-text">Numpy数组不能直接做判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#argparse模块使用"><span class="nav-number">1.2.</span> <span class="nav-text">argparse模块使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用os模块创建文件夹"><span class="nav-number">1.3.</span> <span class="nav-text">使用os模块创建文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多维数组增加维度"><span class="nav-number">1.4.</span> <span class="nav-text">多维数组增加维度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Develop"><span class="nav-number">2.</span> <span class="nav-text">Develop</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#python包中-init-py"><span class="nav-number">2.1.</span> <span class="nav-text">python包中__init__.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sys与os模块"><span class="nav-number">2.2.</span> <span class="nav-text">sys与os模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python中dist-packages和site-packages区别"><span class="nav-number">2.3.</span> <span class="nav-text">Python中dist-packages和site-packages区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行运行程序可选项：python-h"><span class="nav-number">2.4.</span> <span class="nav-text">命令行运行程序可选项：python -h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pdb调试"><span class="nav-number">2.5.</span> <span class="nav-text">pdb调试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Common-errors"><span class="nav-number">3.</span> <span class="nav-text">Common errors</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#invalid-syntax"><span class="nav-number">3.1.</span> <span class="nav-text">invalid syntax</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BIGJUN</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+  	 <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("RC8uA4h0Nn0KBQQDKddRVwUa-gzGzoHsz", "BLWNc8a1M8dzU0m89Pcbr457");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ': 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+});
+</script>
+  
+    
+
+       
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("RC8uA4h0Nn0KBQQDKddRVwUa-gzGzoHsz", "BLWNc8a1M8dzU0m89Pcbr457");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+ 
+</body>
+</html>

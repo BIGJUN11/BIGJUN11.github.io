@@ -83,7 +83,7 @@
 <meta property="og:site_name" content="BigJun&#39;s Blog">
 <meta property="og:description" content="source、sh、bash以及./执行脚本区别设置电脑可以从清华大学软件镜像/中国科学技术大学软件镜像中心中接收软件： sudo sh -c &amp;apos;. /etc/lsb-release &amp;amp;&amp;amp; echo &amp;quot;deb http://mirrors.ustc.edu.cn/ros/ubuntu/ $DISTRIB_CODENAME main&amp;quot; &amp;gt; /etc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-24T12:18:28.495Z">
+<meta property="og:updated_time" content="2019-05-17T13:37:03.320Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu知识资料工具箱">
 <meta name="twitter:description" content="source、sh、bash以及./执行脚本区别设置电脑可以从清华大学软件镜像/中国科学技术大学软件镜像中心中接收软件： sudo sh -c &amp;apos;. /etc/lsb-release &amp;amp;&amp;amp; echo &amp;quot;deb http://mirrors.ustc.edu.cn/ros/ubuntu/ $DISTRIB_CODENAME main&amp;quot; &amp;gt; /etc">
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-24T20:18:28+08:00">
-                2019-03-24
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-17T21:37:03+08:00">
+                2019-05-17
               </time>
             
           </span>
@@ -362,7 +362,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  848
+                  943
                 </span>
               
 
@@ -493,10 +493,12 @@
 <p>shell在执行某个命令的时候，会返回一个返回值，该返回值保存在shell变量 <code>$?</code> 中。当$?==0时，执行成功；当$?==1时（我认为是非0的数,返回值在0-255间），执行失败。  </p>
 </blockquote>
 </blockquote>
-<blockquote>
-<p><a href="https://www.jianshu.com/p/ac2bc0ad3d74" target="_blank" rel="noopener">Linux环境变量总结</a><br><a href="https://my.oschina.net/u/2601303/blog/1501485" target="_blank" rel="noopener">deb、rpm、tar.gz三种Linux软件包的区别</a>   </p>
-</blockquote>
-<table>
+<h2 id="Linux环境变量总结"><a href="#Linux环境变量总结" class="headerlink" title="Linux环境变量总结"></a><a href="https://www.jianshu.com/p/ac2bc0ad3d74" target="_blank" rel="noopener">Linux环境变量总结</a></h2><ul>
+<li><code>env</code>：查看系统所有环境变量；   </li>
+<li><code>export</code>：设置新环境变量；   </li>
+<li>若一开始在<code>.bashrc</code>文件设置了新变量，即使注释掉该命令并source，该shell还存在该环境变量，可通过<code>unset 变量名</code>来删除。</li>
+</ul>
+<h2 id="deb、rpm、tar-gz三种Linux软件包的区别"><a href="#deb、rpm、tar-gz三种Linux软件包的区别" class="headerlink" title="deb、rpm、tar.gz三种Linux软件包的区别"></a><a href="https://my.oschina.net/u/2601303/blog/1501485" target="_blank" rel="noopener">deb、rpm、tar.gz三种Linux软件包的区别</a></h2><table>
 <thead>
 <tr>
 <th style="text-align:center">package</th>
@@ -530,8 +532,14 @@
 <li>从服务器下载<br> <code>scp [-r] &lt;用户名&gt;@&lt;ip&gt;:&lt;文件路径&gt;  &lt;本地路径&gt;</code></li>
 <li>上传<br> <code>scp [-r] &lt;本地路径&gt; &lt;用户名&gt;@&lt;ip&gt;:&lt;文件路径&gt;</code></li>
 </ol>
+<h2 id="常用的解压命令"><a href="#常用的解压命令" class="headerlink" title="常用的解压命令"></a>常用的解压命令</h2><ul>
+<li><a href="https://blog.csdn.net/songbinxu/article/details/80435665" target="_blank" rel="noopener">tar、gzip、rar</a></li>
+</ul>
+<h2 id="软链创建"><a href="#软链创建" class="headerlink" title="软链创建"></a>软链创建</h2><ul>
+<li><code>ln -s [源文件] [目标文件]</code>：目标文件无需先创建；</li>
+</ul>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><blockquote>
-<p>1、.bashrc文件（脚本启动文件）恢复：<code>cp /etc/skel/.bashrc ~/</code>。 <code>/etc/skel</code>存放各种初始配置文件<br>3、Linux查看IP地址：<code>ifconfig</code>或<code>hostname -I</code><br>4、<a href="https://jingyan.baidu.com/article/e4d08ffd7e8d3c0fd2f60dd7.html" target="_blank" rel="noopener">Linux常用快捷键</a><br>5、<a href="http://man.linuxde.net/lsb_release" target="_blank" rel="noopener">lsb_release命令</a>：显示LSB和特定版本的相关信息。<br>6、Linux命令行安装文件<a href="http://man.linuxde.net/wget" target="_blank" rel="noopener">wget</a>：<code>wget [-option] url</code></p>
+<p>1、.bashrc文件（脚本启动文件）恢复：<code>cp /etc/skel/.bashrc ~/</code>。 <code>/etc/skel</code>存放各种初始配置文件<br>3、Linux查看IP地址：<code>ifconfig</code>或<code>hostname -I</code><br>4、<a href="https://jingyan.baidu.com/article/e4d08ffd7e8d3c0fd2f60dd7.html" target="_blank" rel="noopener">Linux常用快捷键</a><br>5、<a href="http://man.linuxde.net/lsb_release" target="_blank" rel="noopener">lsb_release命令</a>：显示LSB和特定版本的相关信息。<br>6、Linux命令行下载文件<a href="http://man.linuxde.net/wget" target="_blank" rel="noopener">wget</a>：<code>wget [-option] url</code></p>
 </blockquote>
 
       
@@ -670,7 +678,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -681,7 +689,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -692,7 +700,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -748,7 +756,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#source、sh、bash以及-执行脚本区别"><span class="nav-number">1.</span> <span class="nav-text">source、sh、bash以及./执行脚本区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux中分号；、-amp-、-、-及其-amp-amp"><span class="nav-number">2.</span> <span class="nav-text">Linux中分号；、&amp;、|、||及其&amp;&amp;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索文件-文件夹"><span class="nav-number">3.</span> <span class="nav-text">搜索文件/文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH文件-文件夹传输"><span class="nav-number">4.</span> <span class="nav-text">SSH文件/文件夹传输</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">5.</span> <span class="nav-text">其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#source、sh、bash以及-执行脚本区别"><span class="nav-number">1.</span> <span class="nav-text">source、sh、bash以及./执行脚本区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux中分号；、-amp-、-、-及其-amp-amp"><span class="nav-number">2.</span> <span class="nav-text">Linux中分号；、&amp;、|、||及其&amp;&amp;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux环境变量总结"><span class="nav-number">3.</span> <span class="nav-text">Linux环境变量总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deb、rpm、tar-gz三种Linux软件包的区别"><span class="nav-number">4.</span> <span class="nav-text">deb、rpm、tar.gz三种Linux软件包的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索文件-文件夹"><span class="nav-number">5.</span> <span class="nav-text">搜索文件/文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH文件-文件夹传输"><span class="nav-number">6.</span> <span class="nav-text">SSH文件/文件夹传输</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的解压命令"><span class="nav-number">7.</span> <span class="nav-text">常用的解压命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软链创建"><span class="nav-number">8.</span> <span class="nav-text">软链创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">9.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
 
           </div>

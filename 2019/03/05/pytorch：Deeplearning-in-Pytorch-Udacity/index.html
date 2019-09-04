@@ -83,7 +83,7 @@
 <meta property="og:site_name" content="BigJun&#39;s Blog">
 <meta property="og:description" content="ArchitecturesUtility toolcheck weights or bias 通过print model.state_dict()或model.named_parameters()查看所有参数，信息包括name和params，然后使用点运算符.查看相应的参数； 通过官网查看相应网络模块具有的variables，然后使用点运算符.查看相应的参数；   1234model.fc.wei">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-30T13:07:29.239Z">
+<meta property="og:updated_time" content="2019-06-02T03:59:29.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Deep learning in Pytorch">
 <meta name="twitter:description" content="ArchitecturesUtility toolcheck weights or bias 通过print model.state_dict()或model.named_parameters()查看所有参数，信息包括name和params，然后使用点运算符.查看相应的参数； 通过官网查看相应网络模块具有的variables，然后使用点运算符.查看相应的参数；   1234model.fc.wei">
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-30T21:07:29+08:00">
-                2019-03-30
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-02T11:59:29+08:00">
+                2019-06-02
               </time>
             
           </span>
@@ -362,7 +362,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  191
+                  562
                 </span>
               
 
@@ -413,16 +413,39 @@
 <li><p>查看GPU是否可用，然后使用<code>.to()</code>使用相应device：</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;)</span><br><span class="line">model.to(device)</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>常用GPU命令</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">torch.cuda.is_available()</span><br><span class="line">cuda是否可用；</span><br><span class="line"></span><br><span class="line">torch.cuda.device_count()</span><br><span class="line">返回gpu数量；</span><br><span class="line"></span><br><span class="line">torch.cuda.get_device_name(0)</span><br><span class="line">返回gpu名字，设备索引默认从0开始；</span><br><span class="line"></span><br><span class="line">torch.cuda.current_device()</span><br><span class="line">返回当前设备索引；</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><h2 id="使用os模块创建文件夹"><a href="#使用os模块创建文件夹" class="headerlink" title="使用os模块创建文件夹"></a>使用<a href="http://www.runoob.com/python/os-file-methods.html" target="_blank" rel="noopener">os模块</a>创建文件夹</h2><blockquote>
-<p>一般先使用<code>os.path.exists(path)</code>来检查相应文件夹是否存在</p>
-<ol>
-<li>使用<code>os.mkdir(path)</code>创建目录；</li>
-<li>使用<code>os.makedirs(path)</code>递归创建目录；</li>
-</ol>
-</blockquote>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if not os.path.exists(path):</span><br><span class="line">	os.makedirs(path)</span><br></pre></td></tr></table></figure>
-</code></pre>
+<h2 id="保存或加载模型"><a href="#保存或加载模型" class="headerlink" title="保存或加载模型"></a>保存或加载模型</h2><ul>
+<li><p>快速保存模型：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.save(model.state_dict(), &apos;path/file_name.pth&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>详细保存：包括其他一下信息</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">checkpoints=&#123;&apos;label&apos;: model.n_label,</span><br><span class="line">			 &apos;input_size&apos;: model.input_size,</span><br><span class="line">			 &apos;state_dict&apos;: model.state_dict()&#125;</span><br><span class="line">with open(os.path.join(args.save+fold,model_name), &apos;wb&apos;) as f:</span><br><span class="line">	torch.save(checkpoint, f)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加载：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.load_state_dict((torch.load(path/file_name.pth)))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="迁移学习：torchvision-models"><a href="#迁移学习：torchvision-models" class="headerlink" title="迁移学习：torchvision.models"></a>迁移学习：<code>torchvision.models</code></h2><ul>
+<li><p>直接从<code>torchvision</code>模块里加载模型：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import torchvision.models as models/ from torchvision import models</span><br><span class="line">model = models.vgg16(pretrained=True/ not args.caffe_pretrain)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>freeze parameters1</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	for param in model.features.parameters():</span><br><span class="line">		param.require_grad = False</span><br><span class="line">	``` </span><br><span class="line"></span><br><span class="line">- freeze specified parameter2</span><br></pre></td></tr></table></figure>
+<h1 id="delete-the-last-MaxPooling-layer"><a href="#delete-the-last-MaxPooling-layer" class="headerlink" title="delete the last MaxPooling layer"></a>delete the last MaxPooling layer</h1><h1 id="freeze-the-first-4-convs"><a href="#freeze-the-first-4-convs" class="headerlink" title="freeze the first 4 convs"></a>freeze the first 4 convs</h1><p>  features = list(model.features)[:30] 
+  for layer in features[:10]: </p>
+<pre><code>for p in layer.parameters(): 
+    p.requires_grad = False 
+</code></pre><p>  features = nn.Sequential(*features)</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&gt; 最好检查一下是否“冻结”了参数，必要时在`optimizer`使用`filter`过滤一遍,[传送门][filter]：   </span><br><span class="line">&gt; `optimizer.SGD(filter(lambda p: p.requires_grad, model.parameters()), lr=1e-3)`</span><br><span class="line"></span><br><span class="line">- 删除或增加layer：转成`list`方便操作，后面再使用`nn.Sequential(*list)`构建模型，其中的`*`是将列表或元组（可能适合其他类型）数据拆分；</span><br><span class="line"></span><br><span class="line">	``` </span><br><span class="line">	# delete the last Linear layer </span><br><span class="line">	classifier = list(model.classifier) </span><br><span class="line">	in_feature = classifier[6].in_feature</span><br><span class="line">	del classifier[6] </span><br><span class="line">	if not args.use_drop: </span><br><span class="line">		del classifier[2] </span><br><span class="line">		del classifier[5] </span><br><span class="line">	classifier = nn.Sequential(*classifier) </span><br><span class="line">	classifier.add_module(str(6), nn.Linear(in_feature, 10))</span><br><span class="line">	``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># python #</span><br><span class="line">## 使用[os模块][os]创建文件夹 ##</span><br><span class="line">&gt; 一般先使用`os.path.exists(path)`来检查相应文件夹是否存在</span><br><span class="line">1. 使用`os.mkdir(path)`创建目录；</span><br><span class="line">2. 使用`os.makedirs(path)`递归创建目录；</span><br></pre></td></tr></table></figure>
+<p>  if not os.path.exists(path):</p>
+<pre><code>os.makedirs(path)
+</code></pre><p>  <code>`</code></p>
+</li>
+</ul>
+
       
     </div>
     
@@ -559,7 +582,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -570,7 +593,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -581,7 +604,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -637,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Architectures"><span class="nav-number">1.</span> <span class="nav-text">Architectures</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Utility-tool"><span class="nav-number">2.</span> <span class="nav-text">Utility tool</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#check-weights-or-bias"><span class="nav-number">2.1.</span> <span class="nav-text">check weights or bias</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Running-with-GPU"><span class="nav-number">2.2.</span> <span class="nav-text">Running with GPU</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python"><span class="nav-number">3.</span> <span class="nav-text">python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用os模块创建文件夹"><span class="nav-number">3.1.</span> <span class="nav-text">使用os模块创建文件夹</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Architectures"><span class="nav-number">1.</span> <span class="nav-text">Architectures</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Utility-tool"><span class="nav-number">2.</span> <span class="nav-text">Utility tool</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#check-weights-or-bias"><span class="nav-number">2.1.</span> <span class="nav-text">check weights or bias</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Running-with-GPU"><span class="nav-number">2.2.</span> <span class="nav-text">Running with GPU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保存或加载模型"><span class="nav-number">2.3.</span> <span class="nav-text">保存或加载模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迁移学习：torchvision-models"><span class="nav-number">2.4.</span> <span class="nav-text">迁移学习：torchvision.models</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#delete-the-last-MaxPooling-layer"><span class="nav-number">3.</span> <span class="nav-text">delete the last MaxPooling layer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#freeze-the-first-4-convs"><span class="nav-number">4.</span> <span class="nav-text">freeze the first 4 convs</span></a></li></ol></div>
             
 
           </div>

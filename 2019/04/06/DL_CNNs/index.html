@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/website_icon2.png?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="CNNs," />
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="BigJun's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="OverviewImage Classification Steps General Steps     the advantage of CNNs MLPs &amp;amp;&amp;amp; CNNs：Fully connected &amp;amp;&amp;amp; Local connected  Local connected/Sparsely connected   Weights sharing   Basic">
+<meta name="keywords" content="CNNs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CNNs">
+<meta property="og:url" content="http://yoursite.com/2019/04/06/DL_CNNs/index.html">
+<meta property="og:site_name" content="BigJun&#39;s Blog">
+<meta property="og:description" content="OverviewImage Classification Steps General Steps     the advantage of CNNs MLPs &amp;amp;&amp;amp; CNNs：Fully connected &amp;amp;&amp;amp; Local connected  Local connected/Sparsely connected   Weights sharing   Basic">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/10.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/11.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/12.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/13.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/9.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/14.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/15.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/19.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/20.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/8.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/17.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/18.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/16.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/7.png">
+<meta property="og:updated_time" content="2019-04-15T07:43:52.665Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CNNs">
+<meta name="twitter:description" content="OverviewImage Classification Steps General Steps     the advantage of CNNs MLPs &amp;amp;&amp;amp; CNNs：Fully connected &amp;amp;&amp;amp; Local connected  Local connected/Sparsely connected   Weights sharing   Basic">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/06/DL_CNNs/CNNs/6.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/06/DL_CNNs/"/>
+
+
+
+
+
+  <title>CNNs | BigJun's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BigJun's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live and let live</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/06/DL_CNNs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BIGJUN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/bigjun.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BigJun's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CNNs</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">          
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-06T15:03:59+08:00">
+                2019-04-06
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-15T15:43:52+08:00">
+                2019-04-15
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/deep-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">deep learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+          
+          
+            <span class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  936
+                </span>
+              
+
+              
+
+              
+            </span>
+          
+
+          
+          
+             <span id="/2019/04/06/DL_CNNs/" class="leancloud_visitors" data-flag-title="CNNs">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><h2 id="Image-Classification-Steps"><a href="#Image-Classification-Steps" class="headerlink" title="Image Classification Steps"></a>Image Classification Steps</h2><ul>
+<li>General Steps<blockquote>
+<p><img src="/2019/04/06/DL_CNNs/CNNs/6.png" alt=""></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="the-advantage-of-CNNs"><a href="#the-advantage-of-CNNs" class="headerlink" title="the advantage of CNNs"></a>the advantage of CNNs</h2><ul>
+<li><p>MLPs &amp;&amp; CNNs：Fully connected &amp;&amp; Local connected<br><img src="/2019/04/06/DL_CNNs/CNNs/10.png" alt=""></p>
+</li>
+<li><p><strong>Local connected/Sparsely connected</strong><br><img src="/2019/04/06/DL_CNNs/CNNs/11.png" alt="">
+<img src="/2019/04/06/DL_CNNs/CNNs/12.png" alt=""></p>
+</li>
+<li><p><strong>Weights sharing</strong><br><img src="/2019/04/06/DL_CNNs/CNNs/13.png" alt=""></p>
+</li>
+</ul>
+<h2 id="Basic-Concept–Ng"><a href="#Basic-Concept–Ng" class="headerlink" title="Basic Concept–Ng"></a>Basic Concept–Ng</h2><blockquote>
+<p><a href="[http://ai-start.com/dl2017/html/lesson4-week1.html]">kernel、Padding、Strid、Convolution、Pooling</a></p>
+</blockquote>
+<h2 id="the-structure-of-CNNs"><a href="#the-structure-of-CNNs" class="headerlink" title="the structure of CNNs"></a>the structure of CNNs</h2><blockquote>
+<p><img src="/2019/04/06/DL_CNNs/CNNs/9.png" alt=""> </p>
+</blockquote>
+<h2 id="Autoencoders-Encoders-2-Decoders"><a href="#Autoencoders-Encoders-2-Decoders" class="headerlink" title="Autoencoders/Encoders-2-Decoders"></a>Autoencoders/Encoders-2-Decoders</h2><blockquote>
+<p>The key point is to leverage this compressed representation  </p>
+</blockquote>
+<ul>
+<li>Normal images Reconstructuin<blockquote>
+<p><img src="/2019/04/06/DL_CNNs/CNNs/14.png" alt=""></p>
+</blockquote>
+</li>
+<li><p>Denoising Autoencoder</p>
+<blockquote>
+<p><img src="/2019/04/06/DL_CNNs/CNNs/15.png" alt="">  </p>
+</blockquote>
+</li>
+<li><p>Decoder：1) <a href="https://bigjun777.github.io/2019/04/14/posts-supplement/#2" target="_blank" rel="noopener">Transpose Convolution</a>; 2) <a href="https://bigjun777.github.io/2019/04/14/posts-supplement/#3" target="_blank" rel="noopener">Upsampling + Convolutions</a></p>
+</li>
+</ul>
+<h2 id="Transfer-Learning"><a href="#Transfer-Learning" class="headerlink" title="Transfer Learning"></a>Transfer Learning</h2><blockquote>
+<p>Transfer learning involves taking a pre-trained neural network and adapting the neural network to a new, different data set.</p>
+</blockquote>
+<ul>
+<li><p>Four main cases    </p>
+<blockquote>
+<p><img src="/2019/04/06/DL_CNNs/CNNs/19.png" alt="">
+Take a look <a href="https://bigjun777.github.io/2019/04/14/posts-supplement/#1" target="_blank" rel="noopener">here</a> for more detail.</p>
+</blockquote>
+</li>
+<li><p>Coding part: <strong>Load the pre-trained model, modefied the model as you want, freeze specified parameters if necessary(<code>requires_grad</code>), specify optimiser if necessary</strong>  </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># Load the pretrained model from pytorch</span><br><span class="line">vgg16 = torchvision.models.vgg16(pretrained=True)</span><br><span class="line"># print out the model structure, see the picture below</span><br><span class="line">print(vgg16)</span><br><span class="line">print(vgg16.classifier[6].in_features) </span><br><span class="line"># Freeze training for all &quot;features&quot; layers</span><br><span class="line">for param in vgg16.features.parameters():</span><br><span class="line">   	param.requires_grad = False</span><br><span class="line"># create a new classifer</span><br><span class="line">import torch.nn as nn</span><br><span class="line">n_inputs = vgg16.classifier[6].in_features</span><br><span class="line"># add last linear layer (n_inputs -&gt; 5 flower classes)</span><br><span class="line"># new layers automatically have requires_grad = True</span><br><span class="line">last_layer = nn.Linear(n_inputs, len(classes))</span><br><span class="line">vgg16.classifier[6] = last_layer</span><br><span class="line"># specify optimizer (stochastic gradient descent) and learning rate = 0.001</span><br><span class="line">optimizer = optim.SGD(vgg16.classifier.parameters(), lr=0.001)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><img src="/2019/04/06/DL_CNNs/CNNs/20.png" alt=""></p>
+</blockquote>
+<h2 id="Style-Transfer"><a href="#Style-Transfer" class="headerlink" title="Style Transfer"></a>Style Transfer</h2></li>
+</ul>
+<h2 id="Weight-Initialization"><a href="#Weight-Initialization" class="headerlink" title="Weight Initialization"></a><a href="https://github.com/udacity/deep-learning-v2-pytorch/blob/master/weight-initialization/weight_initialization_solution.ipynb" target="_blank" rel="noopener">Weight Initialization</a></h2><blockquote>
+<p>Having good initial weights can place the neural network close to the optimal solution. This allows the neural network to come to the best solution quicker.</p>
+</blockquote>
+<blockquote>
+<p>If every weight is the same(<strong>constant weights</strong>), all the neurons at each layer are producing the same output. This makes it hard to decide which weights to adjust.</p>
+</blockquote>
+<blockquote>
+<p>Commonly, we can use <strong>Uniform Initialization</strong>、<strong>Normal Initialization</strong></p>
+</blockquote>
+<h2 id="CNN中全连接层作用"><a href="#CNN中全连接层作用" class="headerlink" title="CNN中全连接层作用"></a>CNN中全连接层作用</h2><ul>
+<li><a href="https://www.zhihu.com/question/41037974" target="_blank" rel="noopener">全连接层作用</a></li>
+</ul>
+<h1 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h1><h2 id="MNIST"><a href="#MNIST" class="headerlink" title="MNIST"></a>MNIST</h2><ul>
+<li>A hand-written digits dataset:  clean.Centered, heavily pre-processed images<br><img src="/2019/04/06/DL_CNNs/CNNs/1.png" alt=""></li>
+<li>Visualize the data: 28x28 pixels1<br><img src="/2019/04/06/DL_CNNs/CNNs/2.png" alt=""></li>
+</ul>
+<h2 id="CIFAR-10"><a href="#CIFAR-10" class="headerlink" title="CIFAR-10"></a>CIFAR-10</h2><ul>
+<li>Small color images that fall into one of ten classes:60000 images(32x32)<br><img src="/2019/04/06/DL_CNNs/CNNs/8.png" alt=""></li>
+</ul>
+<h2 id="ImageNet"><a href="#ImageNet" class="headerlink" title="ImageNet"></a>ImageNet</h2><h1 id="Data-processsing"><a href="#Data-processsing" class="headerlink" title="Data processsing"></a>Data processsing</h1><h2 id="Data-Normalization"><a href="#Data-Normalization" class="headerlink" title="Data Normalization"></a>Data Normalization</h2><ul>
+<li>basic<br><img src="/2019/04/06/DL_CNNs/CNNs/3.png" alt=""></li>
+</ul>
+<h2 id="Data-flattened"><a href="#Data-flattened" class="headerlink" title="Data flattened"></a>Data flattened</h2><ul>
+<li>To input the data into <strong>MLPs(Multi-Layer Perceptrons)</strong>,you need to convert a maticx to a vector;<br><img src="/2019/04/06/DL_CNNs/CNNs/4.png" alt="">
+<img src="/2019/04/06/DL_CNNs/CNNs/5.png" alt=""></li>
+</ul>
+<h2 id="Data-Augmentation"><a href="#Data-Augmentation" class="headerlink" title="Data Augmentation"></a><a href="https://pytorch.org/docs/stable/torchvision/transforms.html" target="_blank" rel="noopener">Data Augmentation</a></h2><ul>
+<li><p>To deal with:</p>
+<blockquote>
+<p>Scale Invariance;
+Rotation Invariance;
+Translation Invariance.</p>
+</blockquote>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># convert data to a normalized torch.FloatTensor</span><br><span class="line">transform = transforms.Compose([</span><br><span class="line">    transforms.RandomHorizontalFlip(), # randomly flip and rotate</span><br><span class="line">    transforms.RandomRotation(10),</span><br><span class="line">    transforms.ToTensor(),  # Convert a PIL Image or numpy.ndarray to tensor.</span><br><span class="line">    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))</span><br><span class="line">    ])</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="Coding-Part"><a href="#Coding-Part" class="headerlink" title="Coding Part"></a>Coding Part</h1><h2 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h2><ul>
+<li><p><a href="https://pytorch.org/docs/stable/torch.html#module-torch" target="_blank" rel="noopener">Pytorch Package</a>    </p>
+<blockquote>
+<p> Pytorch is Python package that provides two high-level features:   </p>
+<ol>
+<li>Tensor computation (like NumPy) with strong GPU acceleration   </li>
+<li>Deep neural networks built on a tape-based autograd system</li>
+</ol>
+</blockquote>
+</li>
+<li><p><a href="https://pytorch.org/docs/stable/torchvision/index.html" target="_blank" rel="noopener">torchvision</a>    </p>
+<blockquote>
+<p>The <code>torchvision</code> package consists of <strong>pupular datasets、model architectures、and common image transformations</strong> for computer vision;</p>
+</blockquote>
+</li>
+<li><p>Import necessary libraries for working with data and Pytorch</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn as nn</span><br><span class="line">import torch.nn.functional as F</span><br><span class="line">import numpy as np</span><br><span class="line">from torchvision import datasets</span><br><span class="line">import torchvision.transforms as transforms</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Load-the-Data"><a href="#Load-the-Data" class="headerlink" title="Load the Data"></a>Load the Data</h2><ul>
+<li><p>Common database: <code>torchvision.transforms.</code>、<code>torchvision.datasets.</code>、<code>torch.utils.data.Dataloader</code></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">transform = transforms.ToTensor()  or  transforms.Compose([... ,...])</span><br><span class="line">train_data = torchvision.datasets.MNIST(root=&apos;data&apos;, train=True, download=True, transform=transform)</span><br><span class="line">test_data = torchvision.datasets.MNIST(root=&apos;data&apos;, train=False, download=True, transform=transform)</span><br><span class="line">train_loader = torch.utils.data.Dataloader(train_data, batch_size=20, num_workers=0)</span><br><span class="line">test_loader = torch.utils.data.Dataloader(test_data, batch_size=20, num_workers=0)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>You can define a new Imagedatas class to load data from a directory: like <a href="https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder" target="_blank" rel="noopener">ImageFolder</a></p>
+<blockquote>
+<p><img src="/2019/04/06/DL_CNNs/CNNs/17.png" alt=""></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Visualize-the-Data"><a href="#Visualize-the-Data" class="headerlink" title="Visualize the Data"></a>Visualize the Data</h2><ul>
+<li><p>Gray：<code>matplotlib.pyplot</code>、<a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html" target="_blank" rel="noopener">plt.figure()</a>、<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.imshow.html" target="_blank" rel="noopener">plt.imshow()</a>   </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">dataiter = iter(train_loader)</span><br><span class="line">images, labels = dataiter.next()</span><br><span class="line">images = images.numpy()		# from torch to numpy</span><br><span class="line"></span><br><span class="line">fig = plt.figure(figsize=(25,4))</span><br><span class="line">for idx in np.arange(20):</span><br><span class="line">	ax = fig.add_subplot(2, 20/2, id+1, xticks=[], yticks=[])</span><br><span class="line">	ax.imshow(np.squeeze(images[idx], cmap=&apos;gray&apos;))</span><br><span class="line">	ax.set_title(str(labels[idx].item))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>RGB</p>
+<blockquote>
+<p><img src="/2019/04/06/DL_CNNs/CNNs/18.png" alt=""></p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>Single image annotation    <blockquote>
+<p><a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.annotate.html" target="_blank" rel="noopener">matplotlib.pyplot.annotate</a>、<a href="https://blog.csdn.net/wizardforcel/article/details/54782628" target="_blank" rel="noopener">Matplotlib 中文用户指南 4.5 标注</a>
+<img src="/2019/04/06/DL_CNNs/CNNs/16.png" alt=""></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Define-the-Network-Architecture"><a href="#Define-the-Network-Architecture" class="headerlink" title="Define the Network Architecture"></a>Define the Network <a href="https://pytorch.org/docs/stable/nn.html" target="_blank" rel="noopener">Architecture</a></h2><ul>
+<li><p><a href="https://pytorch.org/docs/stable/nn.html?highlight=linear#torch.nn.Linear" target="_blank" rel="noopener">Linear layers</a></p>
+<blockquote>
+<p>torch.nn.Linear(in_features, out_features, bias=True)   </p>
+<blockquote>
+<p>Input: (N, *, in_features)(N,∗,in_features) where \∗ means any number of additional dimensions.</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><a href="[https://pytorch.org/docs/stable/nn.html#conv2d]">Convolutional Layers</a>    </p>
+<blockquote>
+<p><img src="/2019/04/06/DL_CNNs/CNNs/7.png" alt=""></p>
+</blockquote>
+</li>
+<li><p>[activation、dropout function][f]</p>
+</li>
+</ul>
+<h2 id="Specify-Loss-Function-and-Optimizeroptim"><a href="#Specify-Loss-Function-and-Optimizeroptim" class="headerlink" title="Specify Loss Function and Optimizeroptim"></a>Specify <a href="https://pytorch.org/docs/stable/nn.html#loss-functions" target="_blank" rel="noopener">Loss Function</a> and Optimizer<a href="https://pytorch.org/docs/stable/optim.html" target="_blank" rel="noopener">optim</a></h2><ul>
+<li>Common：just use existed class: like <code>nn.CrossEntropyLoss()</code>. You can also define your own Loss function, it is commonly defined as a class.     <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">criterion = nn.CrossEntropyLoss()</span><br><span class="line">optimizer = torch.optim.SGD(model.parameters(), lr = 0.01)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Train-the-Network"><a href="#Train-the-Network" class="headerlink" title="Train the Network"></a>Train the Network</h2><blockquote>
+<p>The steps for training/learning from a batch of data are described in the comments below:</p>
+<pre><code>1. Clear the gradients of all optimized variables.
+2. Forward pass: compute predicted outputs by passing inputs to the model.
+3. Calculate the loss.
+4. Backward pass: compute gradient of the loss with respect to model parameters.
+5. Perform a single optimization step(parameter update).
+6. Updata averge training loss.
+</code></pre></blockquote>
+<ul>
+<li>Basic process：prep model for training <code>model.train()</code> 、<code>model.eval()</code>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">for data, target in train_loader:</span><br><span class="line">    # clear the gradients of all optimized variables</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    # forward pass: compute predicted outputs by passing inputs to the model</span><br><span class="line">    output = model(data)</span><br><span class="line">    # calculate the loss</span><br><span class="line">    loss = criterion(output, target)</span><br><span class="line">    # backward pass: compute gradient of the loss with respect to model parameters</span><br><span class="line">    loss.backward()</span><br><span class="line">    # perform a single optimization step (parameter update)</span><br><span class="line">    optimizer.step()</span><br><span class="line">    # update running training loss</span><br><span class="line">    train_loss += loss.item()*data.size(0)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+        ------ 本文结束 ------</div>
+
+      </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CNNs/" rel="tag"><i class="fa fa-tag"></i> CNNs</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/25/Notes-of-Manipulation-class/" rel="next" title="Notes of Manipulation class">
+                <i class="fa fa-chevron-left"></i> Notes of Manipulation class
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/14/1posts-supplement/" rel="prev" title="posts_supplement">
+                posts_supplement <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODA3My8xNDYwMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/bigjun.jpg"
+                alt="BIGJUN" />
+            
+              <p class="site-author-name" itemprop="name">BIGJUN</p>
+              <p class="site-description motion-element" itemprop="description">记录生活 分享知识</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/rss2.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/BIGJUN777" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhijunliang777@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Overview"><span class="nav-number">1.</span> <span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Image-Classification-Steps"><span class="nav-number">1.1.</span> <span class="nav-text">Image Classification Steps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-advantage-of-CNNs"><span class="nav-number">1.2.</span> <span class="nav-text">the advantage of CNNs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Concept–Ng"><span class="nav-number">1.3.</span> <span class="nav-text">Basic Concept–Ng</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-structure-of-CNNs"><span class="nav-number">1.4.</span> <span class="nav-text">the structure of CNNs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Autoencoders-Encoders-2-Decoders"><span class="nav-number">1.5.</span> <span class="nav-text">Autoencoders/Encoders-2-Decoders</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transfer-Learning"><span class="nav-number">1.6.</span> <span class="nav-text">Transfer Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Style-Transfer"><span class="nav-number">1.7.</span> <span class="nav-text">Style Transfer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Weight-Initialization"><span class="nav-number">1.8.</span> <span class="nav-text">Weight Initialization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CNN中全连接层作用"><span class="nav-number">1.9.</span> <span class="nav-text">CNN中全连接层作用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Database"><span class="nav-number">2.</span> <span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MNIST"><span class="nav-number">2.1.</span> <span class="nav-text">MNIST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CIFAR-10"><span class="nav-number">2.2.</span> <span class="nav-text">CIFAR-10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ImageNet"><span class="nav-number">2.3.</span> <span class="nav-text">ImageNet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-processsing"><span class="nav-number">3.</span> <span class="nav-text">Data processsing</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Normalization"><span class="nav-number">3.1.</span> <span class="nav-text">Data Normalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-flattened"><span class="nav-number">3.2.</span> <span class="nav-text">Data flattened</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Augmentation"><span class="nav-number">3.3.</span> <span class="nav-text">Data Augmentation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Coding-Part"><span class="nav-number">4.</span> <span class="nav-text">Coding Part</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic"><span class="nav-number">4.1.</span> <span class="nav-text">Basic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Load-the-Data"><span class="nav-number">4.2.</span> <span class="nav-text">Load the Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Visualize-the-Data"><span class="nav-number">4.3.</span> <span class="nav-text">Visualize the Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Define-the-Network-Architecture"><span class="nav-number">4.4.</span> <span class="nav-text">Define the Network Architecture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Specify-Loss-Function-and-Optimizeroptim"><span class="nav-number">4.5.</span> <span class="nav-text">Specify Loss Function and Optimizeroptim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Train-the-Network"><span class="nav-number">4.6.</span> <span class="nav-text">Train the Network</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BIGJUN</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+  	 <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("RC8uA4h0Nn0KBQQDKddRVwUa-gzGzoHsz", "BLWNc8a1M8dzU0m89Pcbr457");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ': 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+});
+</script>
+  
+    
+
+       
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("RC8uA4h0Nn0KBQQDKddRVwUa-gzGzoHsz", "BLWNc8a1M8dzU0m89Pcbr457");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+ 
+</body>
+</html>
